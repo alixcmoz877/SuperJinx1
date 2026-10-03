@@ -129,6 +129,9 @@ http {
 @@SUBFILTER@@        }
         location = @@BASE_NOSLASH@@ { return 301 @@BASE@@; }
 
+        # opening the bare domain goes straight to the panel login
+        location = / { return 302 @@BASE@@; }
+
         # everything else stays invisible
         location / { return 404; }
     }
